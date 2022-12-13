@@ -1,0 +1,37 @@
+﻿@namespace PlannerApp.Components
+
+<EditForm Model="_model" OnValidSubmit="RegisterUserAsync">
+    <FluentValidationValidator />
+
+    <MudCard>
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h6">@Language["WelcomeTo"] PlannerApp v2.0</MudText>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudTextField Label="@Language["Email"]" HelperText="@Language["Required"]" @bind-Value="@_model.Email" />
+            <MudTextField Label="@Language["FirstName"]" HelperText="@Language["Required"]" @bind-Value="@_model.FirstName" />
+            <MudTextField Label="@Language["LastName"]" HelperText="@Language["Required"]" @bind-Value="@_model.LastName" />
+            <MudTextField InputType="InputType.Password" Label="@Language["Password"]" HelperText="@Language["Required"]" @bind-Value="@_model.Password" />
+            <MudTextField InputType="InputType.Password" Label="@Language["ConfirmPassword"]" HelperText="@Language["Required"]" @bind-Value="@_model.ConfirmPassword" />
+
+            <ValidationSummary />
+
+            @if (!string.IsNullOrWhiteSpace(_errorMessage))
+            {
+                <MudAlert Severity="Severity.Error" Class="my-2" Variant="Variant.Filled">@_errorMessage</MudAlert>
+            }
+        </MudCardContent>
+
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="_isBusy">@Language["Register"]</MudButton>
+            <MudButton  Variant="Variant.Outlined" Color="Color.Secondary" OnClick="RedirectToLogin" Class="ml-1" Disabled="_isBusy">@Language["Login"]</MudButton>
+        </MudCardActions>
+    </MudCard>
+</EditForm>
+
+
+@code {
+
+}

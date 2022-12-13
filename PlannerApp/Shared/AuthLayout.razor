@@ -1,0 +1,43 @@
+﻿@inherits LayoutComponentBase
+
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudText Typo="Typo.h5" Class="ml-3">PlannerApp</MudText>
+        <MudAppBarSpacer />
+        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
+        <LanguageSwitcher />
+    </MudAppBar>
+    <MudMainContent>
+        <MudGrid Justify="Justify.Center" Class="mt-3">
+            <MudItem sm="12" md="4" lg="3">
+                @Body
+            </MudItem>
+        </MudGrid>
+    </MudMainContent>
+</MudLayout>
+
+<MudThemeProvider Theme="_lightTheme" />
+
+@code {
+
+    MudTheme _lightTheme = new MudTheme
+        {
+            Palette = new Palette
+            {
+                AppbarBackground = "#0097FF",
+                AppbarText = "#FFFFFF",
+                Primary = "#007CD1",
+                TextPrimary = "#0C1217",
+                Background = "#F4FDFF",
+                TextSecondary = "#0C1217",
+                DrawerBackground = "#C5E5FF",
+                DrawerText = "#0C1217",
+                Surface = "#E4FAFF",
+                ActionDefault = "#0C1217",
+                ActionDisabled = "#2F678C",
+                TextDisabled = "#676767",
+            }
+        };
+
+}

@@ -1,0 +1,11 @@
+﻿@page "/plans"
+@attribute [Authorize]
+
+<PageTitle>@Language["Plans"] | PlannerApp</PageTitle>
+
+<PAPage Title="@Language["MyPlans"]" BreadcrumbItems="_breadcrumbItems">
+    <PlansList />
+</PAPage>
+
+
+
